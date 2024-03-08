@@ -1,0 +1,73 @@
+.udelete {
+    background-color: rgb(241, 58, 58);
+    border: none;
+    color: white;
+    padding: 6px 26px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.uedit {
+    background-color: rgba(12, 178, 45, 0.838);
+    border: none;
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    padding: 6px 26px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: rgb(160, 160, 160);
+}
+
+.btn-primary {
+    float: right;
+}
+.new:hover{
+    color:white;
+    text-decoration: none;
+}
+
+.box1 {
+    margin-top: 30px;
+    background-color: rgb(237, 234, 234);
+    padding: 16px 10px 16px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    width:85%;
+}
+.card{
+    margin-top:50px;
+}
+.card-header{
+    background-color: rgb(238, 238, 238);
+    padding:10px 10px;
+    font-size: 18px;
+    font-weight: bolder;
+    line-height: 20px;
+    border-radius: 8px;
+}
+.btn-danger{
+    float:right;
+}
+
+label{
+    margin-top:20px;
+    font-size: 13px;
+    padding:2px 4px;
+}
+
+.bg-primary{
+    border-radius: 4px;
+}
+
+.alert{
+    margin-top:20px;
+    padding:4px 4px;
+    width:85%;
+}
+.alert h6{
+    margin:0px;
+    font-size: 16px;
+}
