@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-    use Spatie\Permission\Models\Role;
-    use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class RoleSeeder extends Seeder
 {
@@ -15,14 +15,15 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         $permissions = [
-            'product-list',
-            'product-create',
-            'product-edit',
-            'product-delete'
-         ];
-    // $role = Role::create(['name' => 'Admin']);
-       $role =   Role::create(['name' => 'Vendor']);
-        Role::create(['name' => 'user']);
+            'vendor-product-orders',
+            'vendor-product-list',
+            'vendor-product-add',
+            'vendor-product-edit',
+            'vendor-product-delete',
+        ];
+
+        $role = Role::create(['name' => 'Vendor']);
+        Role::create(['name' => 'User']);
 
         // $role->givePermissionTo(['product-list','product-create','product-edit','product-delete']);
         $role->syncPermissions($permissions);

@@ -15,16 +15,6 @@ class PermissionSeeder extends Seeder
      */
     public function run(): void
     {   
-
-
-        // $permissions =[
-        //     'name' => 'add_new_vender',
-        //     'remove_vender',
-        //      'view_user_data',
-        // ];
-
-
-
     
         // $role->givePermissionTo($permission);
         // $permission->assignRole($role);
@@ -56,7 +46,7 @@ class PermissionSeeder extends Seeder
         // 'category-update',
         // 'category-delete',
         // 'vendor-product-orders'
-        'all-orders'
+        // 'all-orders'
         // 'role-list',
         // 'role-create',
         // 'role-assin-permission',
@@ -76,6 +66,8 @@ class PermissionSeeder extends Seeder
      foreach ($permissions as $permission) {
        Permission::create(['name' => $permission]);
      }
+     $role = Role::create(['name' => 'Admin']);
+     $role->syncPermissions($permissions);
  }
     }
 

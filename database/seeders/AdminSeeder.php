@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 // use App\Models\Roles;
@@ -20,28 +21,29 @@ class AdminSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin123@gmail.com',
             'email_verified_at' => now(),
-            'password' =>  Hash::make('password'),
+            'password' => Hash::make('password'),
         ])->assignRole('Admin');
-        // User::create([
-        //     'name' => 'seller',
-        //     'email' => 'seller123@gmail.com',
-        //     'email_verified_at' => now(),
-        //     'password' =>  Hash::make('12345'),
-        // ]);
-        // $user = User::create([
-        //     'name' => 'admin', 
-        //     'email' => 'admin123@gmail.com',
-        //     'email_verified_at' => now(),
-        //     'password' =>  Hash::make('12345678'),
-        // ])->assignRole('Admin');
-    
+        User::create([
+            'name' => 'vendor',
+            'email' => 'vendor123@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('12345'),
+        ])->assignRole('Vendor');
+
+        $user = User::create([
+            'name' => 'user',
+            'email' => 'user321@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('12345678'),
+        ])->assignRole('User');
+
         // $role = Role::create(['name' => 'Vendor']);
         //  $role = Role::create(['name' => 'Vendor']);
         //    Role::create(['name' => 'User']);
 
         // $permissions = Permission::get();
         // $role->syncPermissions($permissions);
-     
+
         // $user->assignRole($role);
         // $permissions = [
         //     'role-list',
@@ -53,9 +55,9 @@ class AdminSeeder extends Seeder
         //     'product-edit',
         //     'product-delete'
         //  ];
-      
+
     }
-    
-   
-    }
+
+
+}
 
