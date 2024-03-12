@@ -14,21 +14,23 @@ use App\Models\Sub_category;
 use App\Http\Requests\UserRegistrationRequest;
 use App\Http\Requests\Loginform;
 use Illuminate\Support\Facades\Hash;
-use Session;
 use Illuminate\Http\Request;
-use Storage;
 use Illuminate\Support\Facades\Auth;
-use DB;
-use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
 {
   public function productdisplay()
   {
-    $parent_category = ParentCategory::with('sub_category')->get();
-    // dd($parent_category->toArray());
-    $displayproducts = Product::get();
-    return view('welcome')->with(compact('displayproducts', 'parent_category'));
+    if (Auth::check()) {
+      $parent_category = ParentCategory::with('sub_category')->get();
+      $displayproducts = Product::get();
+      $userdetails = User::where('id', Auth::user()->id)->get();
+      return view('welcome')->with(compact('displayproducts', 'parent_category', 'userdetails'));
+    } else {
+      $parent_category = ParentCategory::with('sub_category')->get();
+      $displayproducts = Product::get();
+      return view('welcome')->with(compact('displayproducts', 'parent_category'));
+    }
   }
 
   public function singleProduct($id)
@@ -66,7 +68,7 @@ class ProductController extends Controller
     $sum->update([
       'quantity' => $all,
     ]);
-    return redirect()->back()->with('update-item','Your item updated successfully!');
+    return redirect()->back()->with('update-item', 'Your item updated successfully!');
   }
 
   public function down()
@@ -76,7 +78,7 @@ class ProductController extends Controller
     $sum->update([
       'quantity' => $all,
     ]);
-    return redirect()->back()->with('update-item','Your item updated successfully!');
+    return redirect()->back()->with('update-item', 'Your item updated successfully!');
   }
 
   public function deleteproduct($id)
@@ -92,12 +94,13 @@ class ProductController extends Controller
 
   public function loginform()
   {
-   
+
     return view('admin.login');
   }
 
-  public function loginmatch(Loginform $logindata){
-  
+  public function loginmatch(Loginform $logindata)
+  {
+
 
     $credentials = $logindata->only('email', 'password');
 

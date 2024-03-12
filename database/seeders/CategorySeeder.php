@@ -26,5 +26,37 @@ class CategorySeeder extends Seeder
         DB::table('parent_categories')->insert([
             'category_name' => 'Kids',
         ]);
+        DB::table("sub_categories")->insert([
+            'parent_category_id' => 1,
+            'sub_category_type' => 'Mens cloth',
+        ]);
+        DB::table("sub_categories")->insert([
+            'parent_category_id' => 1,
+            'sub_category_type' => 'Women cloth',
+        ]);
+        DB::table("sub_categories")->insert([
+            'parent_category_id' => 2,
+            'sub_category_type' => 'kitchen appliances',
+        ]);
+        DB::table("sub_categories")->insert([
+            'parent_category_id' => 2,
+            'sub_category_type' => 'Displays',
+        ]);
+        DB::table("sub_categories")->insert([
+            'parent_category_id' => 3,
+            'sub_category_type' => 'Rings',
+        ]);
+        DB::table("sub_categories")->insert([
+            'parent_category_id' => 3,
+            'sub_category_type' => 'Bracelets',
+        ]);
+        DB::table("sub_categories")->insert([
+            'parent_category_id' => 4,
+            'sub_category_type' => 'toys',
+        ]);
+        DB::table("sub_categories")->insert([
+            'parent_category_id' => 4,
+            'sub_category_type' => 'Kids cloth',
+       ]);
     }
 }

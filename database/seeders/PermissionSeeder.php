@@ -41,26 +41,26 @@ class PermissionSeeder extends Seeder
         
     //  Permission::create($permissions);
     $permissions = [
-        // 'category-view',
-        // 'category-create',
-        // 'category-update',
-        // 'category-delete',
-        // 'vendor-product-orders'
-        // 'all-orders'
-        // 'role-list',
-        // 'role-create',
-        // 'role-assin-permission',
-        // 'role-update-permission',
-        // 'role-delete',
-        // 'vendor-product-list',
-        // 'vendor-product-add',
-        // 'vendor-product-edit',
-        // 'vendor-product-delete',
-        // 'user-create',
-        // 'user-list',
-        // 'user-delete',
-        // 'user-assign-role',
-        // 'user-update-role',
+        'category-view',
+        'category-create',
+        'category-update',
+        'category-delete',
+        'vendor-product-orders',
+        'all-orders',
+        'role-list',
+        'role-create',
+        'role-assin-permission',
+        'role-update-permission',
+        'role-delete',
+        'vendor-product-list',
+        'vendor-product-add',
+        'vendor-product-edit',
+        'vendor-product-delete',
+        'user-create',
+        'user-list',
+        'user-delete',
+        'user-assign-role',
+        'user-update-role',
      ];
 
      foreach ($permissions as $permission) {

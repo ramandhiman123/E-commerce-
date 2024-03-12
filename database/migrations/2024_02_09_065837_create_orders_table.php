@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete(); 
             $table->float('total_bill');
+            $table->enum('status',['processing', 'completed', 'shipped'])->default('processing');
             $table->timestamps();
         });
     }
