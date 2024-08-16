@@ -108,7 +108,7 @@
                                         <div class="user">
                                             <i class="fa-solid fa-user fa-2xl"></i>
                                         </div>
-                                        @foreach ($userdetails as $user)
+                                        {{-- @foreach ($userdetails as $user)
                                             <form>
                                                 @csrf
                                 
@@ -128,7 +128,7 @@
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Submit</button>
                                             </form>
-                                        @endforeach
+                                        @endforeach --}}
                                     </div>
                                 </div>
 

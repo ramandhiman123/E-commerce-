@@ -21,7 +21,7 @@ class UserController extends Controller
     $this->middleware(['permission:role-list'], ['only' => 'roleview']);
   }
 
-  public function index()
+  public function index() 
   {
     $users = User::get();
     return view('index', compact('users'));

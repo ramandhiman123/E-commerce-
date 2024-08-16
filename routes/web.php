@@ -11,6 +11,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,28 +52,28 @@ Route::group(['middleware' => ['auth', 'checkrole']], function () {
   Route::post('/assignpermission/{roleid}', [AdminController::class, 'assign_permissions'])->name('add.rolepermission');
   //////end roles and permissions route////
 
-//////product//////
+  //////product//////
   Route::get('/productupdate/{id}', [VenderController::class, 'Update_item'])->name('update.products');
   Route::post('/storeupdate/{id}', [VenderController::class, 'Edit_products'])->name('Edit.items');
   Route::get('/product_list', [VenderController::class, 'vendershow'])->name('admin.Vender');
   Route::Delete('/delete_product/id={id}', [VenderController::class, 'delete_vender_products'])->name('delete_add_products');
   Route::get('/productadd', [VenderController::class, 'Add_product'])->name('Product_Add');
   Route::post('/Products', [VenderController::class, 'productadd'])->name('product.Add');
-//////end products route////
+  //////end products route////
 
-///////category///////
-Route::get('/category_view', [CategoryController::class, 'index'])->name('category.index');
-Route::post('/parent_category', [CategoryController::class, 'create'])->name('category.create');
-Route::get('/deletecategory/{id}', [CategoryController::class, 'deletecategory'])->name('delete.category');
-Route::get('/newcategory', [CategoryController::class, 'category_form'])->name('new.category');
-Route::post('/sub-category-add', [CategoryController::class, 'create_sub_category'])->name('sub-category.create');
-//////end catgory route/////
+  ///////category///////
+  Route::get('/category_view', [CategoryController::class, 'index'])->name('category.index');
+  Route::post('/parent_category', [CategoryController::class, 'create'])->name('category.create');
+  Route::get('/deletecategory/{id}', [CategoryController::class, 'deletecategory'])->name('delete.category');
+  Route::get('/newcategory', [CategoryController::class, 'category_form'])->name('new.category');
+  Route::post('/sub-category-add', [CategoryController::class, 'create_sub_category'])->name('sub-category.create');
+  //////end catgory route/////
 ////vendor product orders/////
-Route::get('/vender_orders', [OrderController::class, 'vender_orders'])->name('vendor_orders_details');
-Route::get('/vendor_products_orders/{id}',[OrderController::class,'vendor_products_orders'])->name('vendor.products_orders');
+  Route::get('/vender_orders', [OrderController::class, 'vender_orders'])->name('vendor_orders_details');
+  Route::get('/vendor_products_orders/{id}', [OrderController::class, 'vendor_products_orders'])->name('vendor.products_orders');
 
-Route::get('/admin_all_orders',[OrderController::class,'allorders'])->name('admin.allorders');
-//////end order route
+  Route::get('/admin_all_orders', [OrderController::class, 'allorders'])->name('admin.allorders');
+  //////end order route
 });
 
 
@@ -107,18 +108,17 @@ Route::get('/orders_history', [OrderController::class, 'order_history'])->name('
 Route::get('/orders_user/{oid}', [OrderController::class, 'user_orders'])->name('order.users');
 
 
-Route::post('/update_status/{id}',[OrderController::class,'vendor_status_update'])->name('vendor.update_status');
+Route::post('/update_status/{id}', [OrderController::class, 'vendor_status_update'])->name('vendor.update_status');
 
 
 
+Route::get('/show_details', function () {
+  return view('pusher');
+});
 
+Route::get('/allusershow',[UserDetailController::class, 'usershow'])->name('alluser.show');
 
-
-
-
-
-// Route::get('/vendor-orderd-products/{pid}',[OrderController::class,'vendor_order_products'])->name('vendor.orders');
-
+Route::post('/useradd', [UserDetailController::class, 'useradd'])->name('user_add');
 
 
 

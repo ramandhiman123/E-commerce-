@@ -30,3 +30,16 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });
+
+import Echo from 'laravel-echo';
+import io from 'socket.io-client';
+import Pusher from 'pusher-js';
+
+// If you need to attach Pusher to the window object:
+window.Pusher = Pusher;
+
+window.Echo = new Echo({
+    broadcaster: 'socket.io',
+    host: window.location.hostname + ':3000', // Address of your Socket.IO server
+    client: io,
+});
